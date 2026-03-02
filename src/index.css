@@ -1,0 +1,513 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Black theme - Dark backgrounds with light text */
+    --background: 0 0% 7%;
+    --foreground: 0 0% 95%;
+
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 10%;
+    --primary-hover: 0 0% 85%;
+
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 95%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 0 0% 95%;
+
+    --radius: 0.75rem;
+
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(0 0% 10%), hsl(0 0% 7%));
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 12%), hsl(0 0% 10%));
+
+    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.3);
+    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.4);
+    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.5);
+    --shadow-xl: 0 20px 25px -5px hsl(0 0% 0% / 0.6);
+
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 0 0% 98%;
+    --sidebar-primary-foreground: 0 0% 10%;
+    --sidebar-accent: 0 0% 12%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 0 0% 95%;
+  }
+
+  .dark {
+    --background: 150 25% 8%;
+    --foreground: 150 10% 95%;
+
+    --card: 150 20% 10%;
+    --card-foreground: 150 10% 95%;
+
+    --popover: 150 20% 10%;
+    --popover-foreground: 150 10% 95%;
+
+    --primary: 157 60% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 157 60% 50%;
+
+    --secondary: 150 15% 15%;
+    --secondary-foreground: 150 10% 95%;
+
+    --muted: 150 15% 15%;
+    --muted-foreground: 150 10% 60%;
+
+    --accent: 150 20% 18%;
+    --accent-foreground: 157 60% 45%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 150 15% 20%;
+    --input: 150 15% 20%;
+    --ring: 157 60% 45%;
+
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(157 60% 35%),
+      hsl(157 60% 45%)
+    );
+    --gradient-card: linear-gradient(
+      180deg,
+      hsl(150 20% 10%),
+      hsl(150 20% 12%)
+    );
+
+    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.3);
+    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.4);
+    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.5);
+    --shadow-xl: 0 20px 25px -5px hsl(0 0% 0% / 0.6);
+
+    --sidebar-background: 150 20% 10%;
+    --sidebar-foreground: 150 10% 95%;
+    --sidebar-primary: 157 60% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 150 15% 15%;
+    --sidebar-accent-foreground: 157 60% 45%;
+    --sidebar-border: 150 15% 20%;
+    --sidebar-ring: 157 60% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Landing Page Animations */
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes bounce-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ─────────────── Landing Page Universal (lp-root) ─────────────── */
+.lp-root {
+  height: 100svh;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+/* On mobile: auto-scale text via viewport clamp so long content fits */
+@media (max-width: 768px) {
+  .lp-root h1 {
+    font-size: clamp(1.1rem, 6vw, 3rem) !important;
+    line-height: 1.1 !important;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+  }
+  .lp-root h2 {
+    font-size: clamp(0.9rem, 5vw, 2rem) !important;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+  .lp-root h3 {
+    font-size: clamp(0.8rem, 4vw, 1.5rem) !important;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+  .lp-root p {
+    font-size: clamp(0.65rem, 3.2vw, 1rem) !important;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+  .lp-root span {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+  /* Make inner root elements fill the constrained height */
+  .lp-root > * {
+    height: 100svh !important;
+    min-height: unset !important;
+    overflow: hidden !important;
+  }
+}
+
+/* ─────────────── Auth Page ─────────────── */
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: hsl(var(--background));
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.12;
+  pointer-events: none;
+}
+.auth-blob-1 {
+  width: 420px;
+  height: 420px;
+  background: hsl(var(--primary));
+  top: -120px;
+  right: -100px;
+  animation: float 8s ease-in-out infinite;
+}
+.auth-blob-2 {
+  width: 300px;
+  height: 300px;
+  background: hsl(var(--primary));
+  bottom: -80px;
+  left: -80px;
+  animation: float 10s ease-in-out infinite reverse;
+}
+
+.auth-card {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: 1.25rem;
+  padding: 2.25rem 2rem;
+  box-shadow: 0 24px 60px hsl(0 0% 0% / 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.auth-logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+  box-shadow: 0 0 0 6px hsl(var(--primary) / 0.12);
+}
+
+.auth-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  color: hsl(var(--muted-foreground));
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 0.5rem;
+  transition: color 0.2s;
+}
+.auth-back:hover {
+  color: hsl(var(--foreground));
+}
+
+.auth-title {
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: hsl(var(--foreground));
+  text-align: center;
+  margin: 0;
+  line-height: 1.2;
+}
+.auth-subtitle {
+  font-size: 0.83rem;
+  color: hsl(var(--muted-foreground));
+  text-align: center;
+  margin: 0.35rem 0 1.5rem;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.auth-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.auth-label {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: hsl(var(--foreground));
+}
+
+.auth-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.auth-input {
+  width: 100%;
+  height: 42px;
+  padding: 0 0.9rem;
+  background: hsl(var(--input));
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.65rem;
+  color: hsl(var(--foreground));
+  font-size: 0.9rem;
+  outline: none;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+  box-sizing: border-box;
+}
+.auth-input::placeholder {
+  color: hsl(var(--muted-foreground));
+}
+.auth-input:focus {
+  border-color: hsl(var(--primary));
+  box-shadow: 0 0 0 3px hsl(var(--primary) / 0.15);
+}
+.auth-input-error {
+  border-color: hsl(var(--destructive)) !important;
+}
+.auth-input-wrap .auth-input {
+  padding-right: 2.6rem;
+}
+
+.auth-eye {
+  position: absolute;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: hsl(var(--muted-foreground));
+  display: flex;
+  align-items: center;
+  padding: 0;
+  transition: color 0.2s;
+}
+.auth-eye:hover {
+  color: hsl(var(--foreground));
+}
+
+.auth-error {
+  font-size: 0.75rem;
+  color: hsl(var(--destructive));
+}
+
+.auth-forgot-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -0.25rem;
+}
+
+.auth-link-sm {
+  font-size: 0.78rem;
+  color: hsl(var(--primary));
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: opacity 0.2s;
+}
+.auth-link-sm:hover {
+  opacity: 0.75;
+}
+
+.auth-btn-primary {
+  width: 100%;
+  height: 44px;
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border: none;
+  border-radius: 0.65rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    opacity 0.2s,
+    transform 0.15s;
+  margin-top: 0.25rem;
+}
+.auth-btn-primary:hover:not(:disabled) {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+.auth-btn-primary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.auth-btn-loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.auth-spin {
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.auth-divider span:first-child,
+.auth-divider span:last-child {
+  flex: 1;
+  height: 1px;
+  background: hsl(var(--border));
+}
+.auth-divider-text {
+  font-size: 0.75rem;
+  color: hsl(var(--muted-foreground));
+  white-space: nowrap;
+}
+
+.auth-btn-outline {
+  width: 100%;
+  height: 44px;
+  background: transparent;
+  color: hsl(var(--foreground));
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.65rem;
+  font-size: 0.92rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    transform 0.15s;
+}
+.auth-btn-outline:hover:not(:disabled) {
+  background: hsl(var(--secondary));
+  border-color: hsl(var(--primary));
+  transform: translateY(-1px);
+}
+.auth-btn-outline:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.auth-resend {
+  font-size: 0.75rem;
+  color: hsl(var(--muted-foreground));
+  text-align: center;
+  margin: 0;
+}
