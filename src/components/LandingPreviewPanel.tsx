@@ -8,11 +8,18 @@ interface Props {
 
 /** Inner screen is 285px wide; design iframe is 375px wide → scale = 285/375 */
 const SCALE = 285 / 375;
-const SCREEN_W = 285;   // px — visible screen width inside phone frame
-const SCREEN_H = 580;   // px — visible screen height inside phone frame
+const SCREEN_W = 285; // px — visible screen width inside phone frame
+const SCREEN_H = 580; // px — visible screen height inside phone frame
+
+const PREVIEW_IMG_KEY = "__prev_img__";
 
 export default function LandingPreviewPanel({ pageData, styleId }: Props) {
   const iframeSrc = useMemo(() => {
+    // Store image in sessionStorage to avoid huge base64 in URL
+    const imgVal = pageData.image_url || "";
+    if (imgVal) {
+      sessionStorage.setItem(PREVIEW_IMG_KEY, imgVal);
+    }
     const p = new URLSearchParams({
       d: String(styleId),
       n: pageData.channel_name || "",
@@ -22,7 +29,7 @@ export default function LandingPreviewPanel({ pageData, styleId }: Props) {
       d2: pageData.channel_desc2 || "",
       cta: pageData.cta_button_text || "",
       lnk: pageData.channel_link || "",
-      img: pageData.image_url || "",
+      img: imgVal ? PREVIEW_IMG_KEY : "",
     });
     return `/preview?${p.toString()}`;
   }, [styleId, pageData]);

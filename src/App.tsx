@@ -1,12 +1,15 @@
 import React, { Suspense, lazy } from "react";
 import type {} from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, Outlet } from "react-router-dom";
 import { Toaster } from "sonner";
+import PasswordProtectionGate from "@/components/PasswordProtectionGate";
 
 const Index             = lazy(() => import("@/pages/Index"));
+const BuilderPage       = lazy(() => import("@/pages/BuilderPage"));
 const AdminPage         = lazy(() => import("@/pages/AdminPage"));
 const LandingPage       = lazy(() => import("@/pages/LandingPage"));
 const DesignPreviewPage = lazy(() => import("@/pages/DesignPreviewPage"));
+const QuotationPage     = lazy(() => import("@/pages/QuotationPage"));
 
 const RouteFallback = (
   <div className="min-h-screen w-full bg-[#0E0E10]" aria-hidden />
@@ -19,14 +22,23 @@ export default function App() {
 
       <Suspense fallback={RouteFallback}>
         <Routes>
-          {/* Main HTML Generator */}
-          <Route index element={<Index />} />
+          {/* Protected Creator Workspace Routes */}
+          <Route element={<PasswordProtectionGate><Outlet /></PasswordProtectionGate>}>
+            {/* Main Home Page */}
+            <Route index element={<Index />} />
 
-          {/* Admin Panel (protected by client-side sessionStorage check inside AdminPage) */}
-          <Route path="/admin" element={<AdminPage />} />
+            {/* Landing Page Builder */}
+            <Route path="/builder" element={<BuilderPage />} />
 
-          {/* Preview iframe route used by LandingPreviewPanel */}
-          <Route path="/preview" element={<DesignPreviewPage />} />
+            {/* Admin Panel (protected by client-side sessionStorage check inside AdminPage) */}
+            <Route path="/admin" element={<AdminPage />} />
+
+            {/* Preview iframe route used by LandingPreviewPanel */}
+            <Route path="/preview" element={<DesignPreviewPage />} />
+
+            {/* Public quotation flow */}
+            <Route path="/quotation" element={<QuotationPage />} />
+          </Route>
 
           {/* Public landing pages served by slug */}
           <Route path="/:slug" element={<LandingPage />} />

@@ -86,42 +86,42 @@ export default function Design21Breeze({ pageData }: any) {
 
         <div className="relative z-10 max-w-4xl w-full grid md:grid-cols-2 gap-16 items-center">
           {/* Left: Text */}
-          <div className="space-y-8">
-            <div className="flex items-center gap-2 text-[#6B8E7B] uppercase tracking-widest text-xs font-semibold">
+          <div className="space-y-8 flex flex-col items-center text-center">
+            <div className="flex items-center justify-center gap-2 text-[#6B8E7B] uppercase tracking-widest text-xs font-semibold">
               <Leaf className="w-4 h-4" />
               <span>Natural Growth</span>
             </div>
 
-            <h1 className="text-6xl font-serif text-[#2C3E34] leading-tight">
+            <h1 className="text-6xl font-serif text-[#2C3E34] leading-tight text-center">
               {pageData.channel_name}
             </h1>
-            <h2 className="text-xl text-[#6B8E7B] font-medium mt-2">
+            <h2 className="text-xl text-[#6B8E7B] font-medium mt-2 text-center">
               {pageData.channel_title}
             </h2>
 
-            <p className="text-lg leading-relaxed text-[#5C7267]">
+            <p className="text-lg leading-relaxed text-[#5C7267] text-center">
               {pageData.channel_desc1}
             </p>
 
             {pageData.channel_desc2 && (
-              <p className="text-base text-[#5C7267]/80 leading-relaxed font-light">
+              <p className="text-base text-[#5C7267]/80 leading-relaxed font-light text-center">
                 {pageData.channel_desc2}
               </p>
             )}
 
-            <div className="flex flex-col gap-4 border-l-2 border-[#D4EDE2] pl-6">
+            <div className="flex flex-col gap-4 items-center justify-center">
               <div className="flex items-center gap-3">
                 <Droplets className="w-5 h-5 text-[#88B09F]" />
                 <span className="text-sm font-medium">
                   Daily Refreshing Content
                 </span>
               </div>
-              <div className="text-sm text-[#5C7267]/80 italic">
+              <div className="text-sm text-[#5C7267]/80 italic text-center">
                 "Like a breath of fresh air for your feed."
               </div>
             </div>
 
-            <div className="pt-4">
+            <div className="pt-4 flex flex-col items-center">
               <Button
                 onClick={() => window.open(pageData.channel_link, "_blank")}
                 className="h-14 px-10 bg-[#2C3E34] hover:bg-[#1A2620] text-white rounded-full text-sm uppercase tracking-widest transition-all hover:shadow-xl hover:shadow-[#2C3E34]/20"
@@ -129,7 +129,7 @@ export default function Design21Breeze({ pageData }: any) {
                 {pageData.cta_button_text || "Begin Journey"}
               </Button>
 
-              <p className="text-[10px] text-[#4A5D53]/60 mt-4">
+              <p className="text-[10px] text-[#4A5D53]/60 mt-4 text-center">
                 <span className="font-bold">Disclaimer:</span> Educational
                 content only. {pageData.channel_name} is not responsible for
                 financial decisions.
