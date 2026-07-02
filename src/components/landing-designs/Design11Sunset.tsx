@@ -10,87 +10,88 @@ export default function Design12Sunset({ pageData }: any) {
   }, []);
 
   return (
-    <main className="h-screen w-full relative overflow-hidden bg-gradient-to-b from-orange-300 via-rose-300 to-purple-400 flex flex-col items-center justify-center p-2 sm:p-4">
-      {/* Sun/Atmosphere Background Elements */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-yellow-200/40 rounded-full blur-[100px] pointer-events-none mix-blend-screen" />
-      <div className="absolute bottom-0 w-full h-1/3 bg-gradient-to-t from-purple-900/30 to-transparent pointer-events-none" />
+    <main className="h-screen w-full relative overflow-hidden bg-[#0d0714] flex flex-col items-center justify-center p-4">
+      {/* Premium Sunset Atmosphere */}
+      <div className="absolute inset-0 z-0">
+        {/* Deep Sunset Glow (Amber, Rose, Violet) */}
+        <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[90%] h-[80%] bg-gradient-to-t from-amber-500/20 via-rose-500/10 to-transparent rounded-full blur-[140px] pointer-events-none mix-blend-screen" />
+        <div className="absolute top-[15%] left-[20%] w-[300px] h-[300px] bg-purple-600/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute top-[10%] right-[10%] w-[400px] h-[400px] bg-orange-600/10 rounded-full blur-[120px] pointer-events-none" />
+        
+        {/* Soft Grid Lines for high-end aesthetic */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:30px_30px]" />
+      </div>
 
       <div
-        className={`relative z-10 max-w-2xl w-full text-center transition-all duration-300 transform flex flex-col items-center justify-center h-full max-h-screen py-4 ${
-          isVisible ? "translate-y-0 opacity-100" : "translate-y-10 "
+        className={`relative z-10 max-w-2xl w-full text-center transition-all duration-700 transform flex flex-col items-center justify-center h-full max-h-screen py-4 ${
+          isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
         }`}
       >
-        {/* Floating Image Container - Scale down on small screens */}
-        <div className="shrink-0 mx-auto mb-4 sm:mb-6 relative w-44 sm:w-48 h-44 sm:h-48 group">
-          <div className="absolute inset-0 bg-yellow-400 rounded-[2rem] rotate-6 opacity-60 blur-md group-hover:rotate-12 transition-transform duration-300" />
-          <div className="absolute inset-0 bg-orange-500 rounded-[2rem] -rotate-3 opacity-60 blur-md group-hover:-rotate-6 transition-transform duration-300" />
-          <div className="relative w-full h-full rounded-[2rem] overflow-hidden border-4 border-white/40 shadow-2xl bg-white/20 backdrop-blur-sm">
+        {/* Floating Image Container with sunset frames */}
+        <div className="shrink-0 mx-auto mb-6 relative w-44 sm:w-48 h-44 sm:h-48 group">
+          <div className="absolute inset-0 bg-gradient-to-tr from-amber-500 to-rose-500 rounded-[2.5rem] rotate-8 opacity-40 blur-xl group-hover:rotate-12 group-hover:scale-105 transition-all duration-500" />
+          <div className="absolute inset-0 bg-gradient-to-bl from-purple-600 to-orange-500 rounded-[2.5rem] -rotate-6 opacity-40 blur-xl group-hover:-rotate-12 group-hover:scale-105 transition-all duration-500" />
+          
+          <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden border-2 border-white/20 shadow-[0_24px_50px_-12px_rgba(0,0,0,0.5)] bg-slate-950/20 backdrop-blur-md p-1.5">
             <img
               src={pageData.image_url}
               alt={pageData.channel_title}
-              className="w-full h-full object-contain"
+              className="w-full h-full object-cover rounded-[2.2rem] filter brightness-95 contrast-105"
             />
           </div>
 
-          <div className="absolute -bottom-3 -right-3 bg-white text-orange-600 px-3 py-0.5 rounded-full shadow-lg font-bold text-xs flex items-center gap-1 animate-bounce-slow">
+          <div className="absolute -bottom-3 -right-3 bg-gradient-to-r from-amber-500 to-rose-500 text-white px-3.5 py-1.5 rounded-full shadow-[0_8px_20px_rgba(244,63,94,0.3)] font-black text-[10px] tracking-widest uppercase flex items-center gap-1.5 animate-bounce" style={{ animationDuration: '4s' }}>
             <Sunset size={12} />
-            <span>Hot Pick</span>
+            <span>Golden Pick</span>
           </div>
         </div>
 
-        {/* Text Content - Compact spacing */}
-        <div className="shrink min-h-0 flex flex-col items-center justify-center gap-1 sm:gap-2 w-full px-2">
-          <h2 className="text-lg sm:text-xl font-bold text-white/90 uppercase tracking-wide truncate max-w-full">
+        {/* Text Content in premium typography */}
+        <div className="shrink min-h-0 flex flex-col items-center justify-center gap-2 w-full px-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/5 border border-white/10 rounded-full text-amber-400 text-[10px] font-bold uppercase tracking-[0.2em] mb-2">
+            <Users size={10} className="text-amber-500" />
+            <span>{pageData.channel_subscribers?.toLocaleString()} Active Members</span>
+          </div>
+
+          <h2 className="text-sm sm:text-base font-extrabold text-amber-500/80 uppercase tracking-[0.25em] max-w-full truncate">
             {pageData.channel_name}
           </h2>
-          <h1 className="text-2xl xs:text-3xl sm:text-5xl font-black text-white drop-shadow-md tracking-tight leading-tight line-clamp-2">
+          <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight bg-clip-text text-transparent bg-gradient-to-b from-white via-slate-100 to-slate-300 drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
             {pageData.channel_title}
           </h1>
 
-          <div className="h-1 w-16 sm:w-24 bg-white/50 rounded-full mx-auto my-2 sm:my-4 shrink-0" />
+          <div className="h-0.5 w-16 bg-gradient-to-r from-transparent via-amber-500/50 to-transparent my-3 shrink-0" />
 
-          <p className="text-sm xs:text-base sm:text-xl text-white/95 font-medium drop-shadow-sm line-clamp-3 px-2">
+          <p className="text-sm xs:text-base sm:text-lg text-slate-300 font-medium leading-relaxed max-w-md mx-auto line-clamp-3">
             {pageData.channel_desc1}
           </p>
 
           {pageData.channel_desc2 && (
-            <p className="hidden sm:block text-sm text-white/80 mt-2 max-w-lg mx-auto leading-relaxed line-clamp-2">
+            <p className="hidden sm:block text-xs sm:text-sm text-slate-400 max-w-md mx-auto leading-relaxed line-clamp-2 mt-1">
               {pageData.channel_desc2}
             </p>
           )}
         </div>
 
-        {/* Action Area */}
-        <div className="shrink-0 flex flex-col items-center gap-3 sm:gap-4 mt-4 sm:mt-8 w-full">
+        {/* Action Button */}
+        <div className="shrink-0 flex flex-col items-center gap-4 mt-6 sm:mt-8 w-full">
           <Button
             onClick={() => window.open(pageData.channel_link, "_blank")}
-            className="group relative px-6 py-4 sm:px-8 sm:py-6 text-base sm:text-lg rounded-full bg-white text-rose-600 hover:bg-orange-50 font-bold shadow-xl transition-all hover:-translate-y-1 border border-white/50 w-[90%] sm:w-auto"
+            className="group relative px-8 py-6 text-sm rounded-full bg-gradient-to-r from-amber-500 via-rose-500 to-purple-600 hover:from-amber-400 hover:via-rose-400 hover:to-purple-500 text-white font-extrabold shadow-[0_12px_32px_rgba(244,63,94,0.3)] transition-all duration-300 hover:scale-105 active:scale-98 border-0 w-[85%] sm:w-auto uppercase tracking-widest"
           >
             <span className="relative z-10 flex items-center justify-center gap-2">
               {pageData.cta_button_text || "Join Our Community"}
-              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </span>
           </Button>
-
-          <div className="flex items-center gap-2 px-3 py-1.5 bg-black/10 backdrop-blur-md rounded-full text-white/90 text-xs sm:text-sm font-medium border border-white/10">
-            <Users size={12} />
-            <span>{pageData.channel_subscribers?.toLocaleString()} joined</span>
-          </div>
         </div>
 
-        <div className="shrink-0 mt-4 sm:mt-8 px-4 text-center">
-          <p className="text-[10px] text-white/60 leading-tight">
-            <span className="font-bold">Disclaimer:</span> Educational purpose
-            only.
+        <div className="shrink-0 mt-6 sm:mt-8 px-4 text-center">
+          <p className="text-[10px] text-slate-500/80 tracking-wider">
+            <span className="font-bold text-slate-400">Disclaimer:</span> Educational purpose only. {pageData.channel_name} is not responsible for financial decisions.
           </p>
         </div>
       </div>
-
-      {/* Bottom Footer Pattern */}
-      <div className="absolute bottom-0 left-0 w-full h-24 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNDQwIDMyMCI+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZmlsbC1vcGFjaXR5PSIwLjEiIGQ9Ik0wLDIyNEw0OCwyMTMuM0M5NiwyMDMsMTkyLDE4MSwyODgsMTgxLjNDMzg0LDE4MSw0ODAsMjAzLDU3NiwyMjRDNjcyLDI0NSw3NjgsMjY3LDg2NCwyNTBCOTkwLDIzNSwxMDU2LDE4MSwxMTUyLDE2MEMxMjQ4LDEzOSwxMzQ0LDE0OSwxMzkyLDE1NEwxNDQwLDE2MEwxNDQwLDMyMEwxMzkyLDMyMEMxMzQ0LDMyMCwxMjQ4LDMyMCwxMTUyLDMyMEMxMDU2LDMyMCw5NjAsMzIwLDg2NCwzMjBDNzY4LDMyMCw2NzIsMzIwLDU3NiwzMjBDNDgwLDMyMCwzODQsMzIwLDI4OCwzMjBDMTkyLDMyMCw5NiwzMjAsNDgsMzIwTDAsMzIwWiI+PC9wYXRoPjwvc3ZnPg==')] bg-cover bg-bottom opacity-30 pointer-events-none" />
     </main>
   );
 }
-
-
-

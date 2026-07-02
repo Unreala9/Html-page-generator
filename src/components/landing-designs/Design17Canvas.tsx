@@ -36,7 +36,7 @@ export default function Design24Canvas({ pageData }: any) {
         </div>
 
         {/* Right: Notes */}
-        <div className="md:order-2 space-y-4 md:space-y-8">
+        <div className="md:order-2 space-y-4 md:space-y-8 flex flex-col items-center">
           {/* Mobile logo — shown only on mobile */}
           <div className="flex flex-col items-center gap-2 md:hidden">
             <div className="relative">
@@ -53,25 +53,25 @@ export default function Design24Canvas({ pageData }: any) {
               {pageData.channel_name} • {new Date().getFullYear()}
             </p>
           </div>
-          <div className="bg-yellow-100 p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.1)] rotate-[1deg] relative">
+          <div className="bg-yellow-100 p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.1)] rotate-[1deg] relative flex flex-col items-center text-center w-full">
             <div className="absolute -top-3 -right-3 text-stone-400">
               <Paperclip className="w-8 h-8" />
             </div>
-            <h1 className="text-4xl font-bold text-stone-900 mb-2 font-sans">
+            <h1 className="text-4xl font-bold text-stone-900 mb-2 font-sans text-center">
               {pageData.channel_title}
             </h1>
-            <div className="h-0.5 w-20 bg-stone-300 mb-4 rounded-full"></div>
-            <p className="text-lg text-stone-700 leading-relaxed font-sans">
+            <div className="h-0.5 w-20 bg-stone-300 mb-4 rounded-full mx-auto"></div>
+            <p className="text-lg text-stone-700 leading-relaxed font-sans text-center">
               {pageData.channel_desc1}
             </p>
             {pageData.channel_desc2 && (
-              <p className="text-base text-stone-600 leading-relaxed font-sans mt-4">
+              <p className="text-base text-stone-600 leading-relaxed font-sans mt-4 text-center">
                 {pageData.channel_desc2}
               </p>
             )}
           </div>
 
-          <div className="flex flex-col gap-4 pl-4 border-l-4 border-stone-300 border-dotted">
+          <div className="flex flex-col gap-4 items-center justify-center">
             <div className="flex items-center gap-2 text-stone-600 font-sans">
               <div className="w-2 h-2 rounded-full bg-stone-400"></div>
               <span>Creative Community</span>
@@ -96,7 +96,7 @@ export default function Design24Canvas({ pageData }: any) {
             {pageData.cta_button_text || "Sketch Together"}
           </Button>
 
-          <p className="text-[10px] text-stone-500 font-sans">
+          <p className="text-[10px] text-stone-500 font-sans text-center">
             <span className="font-bold">Disclaimer:</span> Educational content
             only. {pageData.channel_name} is not responsible for financial
             decisions.

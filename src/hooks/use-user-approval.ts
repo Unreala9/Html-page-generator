@@ -51,8 +51,6 @@ export function useUserApproval() {
         { userId },
       );
 
-      console.log("Admin Check Data:", adminData);
-
       if (adminData?.admin_users?.length) {
         setIsAdmin(true);
         setIsApproved(true);

@@ -13,27 +13,27 @@ export default function Design11Serene({ pageData }: any) {
 
       <div className="container mx-auto px-6 h-screen flex flex-col lg:flex-row items-center justify-center lg:justify-between py-12 lg:py-0 relative z-10 gap-12 lg:gap-8">
         {/* Left Content Column */}
-        <div className="flex-1 max-w-2xl text-center lg:text-left space-y-8">
+        <div className="flex-1 max-w-2xl text-center space-y-8 flex flex-col items-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-900/30 border border-emerald-800/50 text-emerald-400 text-sm font-medium tracking-wide">
             <Leaf size={14} className="animate-pulse" />
             <span>Growth & Prosperity</span>
           </div>
 
-          <h1 className="text-5xl lg:text-7xl font-serif font-medium tracking-tight text-emerald-50 leading-[1.1]">
+          <h1 className="text-5xl lg:text-7xl font-serif font-medium tracking-tight text-emerald-50 leading-[1.1] text-center">
             {pageData.channel_title}
           </h1>
 
-          <p className="text-lg lg:text-xl text-emerald-100/70 leading-relaxed font-light">
+          <p className="text-lg lg:text-xl text-emerald-100/70 leading-relaxed font-light text-center">
             {pageData.channel_desc1}
           </p>
 
           {pageData.channel_desc2 && (
-            <p className="text-lg lg:text-xl text-emerald-100/60 leading-relaxed font-light mt-4">
+            <p className="text-lg lg:text-xl text-emerald-100/60 leading-relaxed font-light mt-4 text-center">
               {pageData.channel_desc2}
             </p>
           )}
 
-          <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start pt-4">
+          <div className="flex flex-col sm:flex-row items-center gap-4 justify-center pt-4 w-full">
             <Button
               onClick={() => window.open(pageData.channel_link, "_blank")}
               className="h-14 px-8 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white text-lg font-medium shadow-[0_10px_30px_-10px_rgba(16,185,129,0.4)] transition-all hover:scale-105 hover:shadow-[0_20px_40px_-10px_rgba(16,185,129,0.5)] border border-emerald-500/20"
@@ -49,8 +49,8 @@ export default function Design11Serene({ pageData }: any) {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-8 border-t border-emerald-900/50">
-            <div className="space-y-1">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-8 border-t border-emerald-900/50 w-full text-center">
+            <div className="space-y-1 flex flex-col items-center">
               <h4 className="text-2xl font-serif text-emerald-300">
                 {pageData.channel_subscribers?.toLocaleString()}
               </h4>
@@ -58,13 +58,13 @@ export default function Design11Serene({ pageData }: any) {
                 Community
               </p>
             </div>
-            <div className="space-y-1">
+            <div className="space-y-1 flex flex-col items-center">
               <h4 className="text-2xl font-serif text-emerald-300">100%</h4>
               <p className="text-xs uppercase tracking-wider text-emerald-600 font-semibold">
                 Verified
               </p>
             </div>
-            <div className="space-y-1 hidden sm:block">
+            <div className="space-y-1 hidden sm:flex flex-col items-center">
               <h4 className="text-2xl font-serif text-emerald-300">24/7</h4>
               <p className="text-xs uppercase tracking-wider text-emerald-600 font-semibold">
                 Support
@@ -72,7 +72,7 @@ export default function Design11Serene({ pageData }: any) {
             </div>
           </div>
 
-          <p className="text-[10px] text-emerald-800/60 mt-4">
+          <p className="text-[10px] text-emerald-800/60 mt-4 text-center">
             <span className="font-bold text-emerald-800/80">Disclaimer:</span>{" "}
             Educational content only. {pageData.channel_name} is not responsible
             for financial decisions.

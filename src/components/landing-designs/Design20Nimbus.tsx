@@ -38,7 +38,7 @@ export default function Design28Nimbus({ pageData }: any) {
         </h1>
 
         {/* Desc */}
-        <p className="text-sm text-blue-100/80 font-medium text-center border-l-4 border-yellow-500 pl-3 py-1 bg-gradient-to-r from-blue-900/20 to-transparent max-w-xs shrink-0">
+        <p className="text-sm text-blue-100/80 font-medium text-center max-w-xs shrink-0 mx-auto">
           {pageData.channel_desc1}
         </p>
 
@@ -67,21 +67,21 @@ export default function Design28Nimbus({ pageData }: any) {
       <div className="hidden lg:flex h-full container mx-auto px-8 items-center relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center w-full max-w-6xl mx-auto">
           {/* Left Content */}
-          <div className="space-y-7 relative">
+          <div className="space-y-7 relative flex flex-col items-center text-center">
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-yellow-500 text-yellow-950 text-xs font-bold uppercase tracking-widest skew-x-[-10deg] animate-pulse">
               <AlertTriangle size={13} className="fill-yellow-950" />
               <span>High Voltage • {pageData.channel_name}</span>
             </div>
-            <h1 className="text-7xl xl:text-8xl font-black tracking-tighter uppercase italic leading-[0.9] drop-shadow-[0_0_20px_rgba(59,130,246,0.5)]">
+            <h1 className="text-7xl xl:text-8xl font-black tracking-tighter uppercase italic leading-[0.9] drop-shadow-[0_0_20px_rgba(59,130,246,0.5)] text-center">
               {pageData.channel_title}
             </h1>
-            <p className="text-xl text-blue-100/80 font-medium max-w-lg border-l-4 border-yellow-500 pl-6 py-2 bg-gradient-to-r from-blue-900/20 to-transparent">
+            <p className="text-xl text-blue-100/80 font-medium max-w-lg text-center mx-auto">
               {pageData.channel_desc1}
             </p>
             {pageData.channel_desc2 && (
-              <p className="text-lg text-blue-200/60 font-medium max-w-lg pl-7">{pageData.channel_desc2}</p>
+              <p className="text-lg text-blue-200/60 font-medium max-w-lg text-center mx-auto">{pageData.channel_desc2}</p>
             )}
-            <div className="flex items-center gap-6 pt-2">
+            <div className="flex items-center gap-6 pt-2 justify-center">
               <Button
                 onClick={() => window.open(pageData.channel_link, "_blank")}
                 className="h-16 px-10 bg-yellow-400 hover:bg-yellow-300 text-slate-950 text-xl font-black uppercase italic tracking-widest skew-x-[-10deg] shadow-[0_0_30px_rgba(250,204,21,0.6)] hover:shadow-[0_0_50px_rgba(250,204,21,0.8)] transition-all hover:scale-105"
@@ -96,7 +96,7 @@ export default function Design28Nimbus({ pageData }: any) {
                 </div>
               </div>
             </div>
-            <p className="text-[10px] text-blue-500/50 uppercase tracking-widest">
+            <p className="text-[10px] text-blue-500/50 uppercase tracking-widest text-center">
               Disclaimer: Educational only. {pageData.channel_name} not liable.
             </p>
           </div>

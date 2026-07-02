@@ -60,65 +60,20 @@ const Design19Slate = lazy(
 const Design20Nimbus = lazy(
   () => import("@/components/landing-designs/Design20Nimbus"),
 );
-const Design21FireStrike = lazy(
-  () => import("@/components/landing-designs/Design21FireStrike"),
+const Design21WhatsAppChatLight = lazy(
+  () => import("@/components/landing-designs/Design21WhatsAppChatLight"),
 );
-const Design22CrystalPro = lazy(
-  () => import("@/components/landing-designs/Design22CrystalPro"),
+const Design22WhatsAppChatDark = lazy(
+  () => import("@/components/landing-designs/Design22WhatsAppChatDark"),
 );
-const Design23VerdantPulse = lazy(
-  () => import("@/components/landing-designs/Design23VerdantPulse"),
+const Design23WhatsAppChannelModern = lazy(
+  () => import("@/components/landing-designs/Design23WhatsAppChannelModern"),
 );
-const Design24GoldVault = lazy(
-  () => import("@/components/landing-designs/Design24GoldVault"),
+const Design24WhatsAppGlassmorphic = lazy(
+  () => import("@/components/landing-designs/Design24WhatsAppGlassmorphic"),
 );
-const Design25NeonCity = lazy(
-  () => import("@/components/landing-designs/Design25NeonCity"),
-);
-const Design26SunriseBoost = lazy(
-  () => import("@/components/landing-designs/Design26SunriseBoost"),
-);
-const Design27PurpleRain = lazy(
-  () => import("@/components/landing-designs/Design27PurpleRain"),
-);
-const Design28SteelEdge = lazy(
-  () => import("@/components/landing-designs/Design28SteelEdge"),
-);
-const Design29RoseElite = lazy(
-  () => import("@/components/landing-designs/Design29RoseElite"),
-);
-const Design30TitanBlack = lazy(
-  () => import("@/components/landing-designs/Design30TitanBlack"),
-);
-const Design31IceStorm = lazy(
-  () => import("@/components/landing-designs/Design31IceStorm"),
-);
-const Design32MidnightBloom = lazy(
-  () => import("@/components/landing-designs/Design32MidnightBloom"),
-);
-const Design33VolcanoRed = lazy(
-  () => import("@/components/landing-designs/Design33VolcanoRed"),
-);
-const Design34CosmicDrift = lazy(
-  () => import("@/components/landing-designs/Design34CosmicDrift"),
-);
-const Design35EmeraldCity = lazy(
-  () => import("@/components/landing-designs/Design35EmeraldCity"),
-);
-const Design36SandDune = lazy(
-  () => import("@/components/landing-designs/Design36SandDune"),
-);
-const Design37NordLight = lazy(
-  () => import("@/components/landing-designs/Design37NordLight"),
-);
-const Design38DiamondEdge = lazy(
-  () => import("@/components/landing-designs/Design38DiamondEdge"),
-);
-const Design39SkyRocket = lazy(
-  () => import("@/components/landing-designs/Design39SkyRocket"),
-);
-const Design40VelvetLux = lazy(
-  () => import("@/components/landing-designs/Design40VelvetLux"),
+const Design25WhatsAppCyberChat = lazy(
+  () => import("@/components/landing-designs/Design25WhatsAppCyberChat"),
 );
 
 export interface PageData {
@@ -225,67 +180,23 @@ export default function DesignRenderer({ pageData, styleId }: Props) {
       content = <Design20Nimbus pageData={pageData as any} />;
       break;
     case 21:
-      content = <Design21FireStrike pageData={pageData as any} />;
+      content = <Design21WhatsAppChatLight pageData={pageData as any} />;
       break;
     case 22:
-      content = <Design22CrystalPro pageData={pageData as any} />;
+      content = <Design22WhatsAppChatDark pageData={pageData as any} />;
       break;
     case 23:
-      content = <Design23VerdantPulse pageData={pageData as any} />;
+      content = <Design23WhatsAppChannelModern pageData={pageData as any} />;
       break;
     case 24:
-      content = <Design24GoldVault pageData={pageData as any} />;
+      content = <Design24WhatsAppGlassmorphic pageData={pageData as any} />;
       break;
     case 25:
-      content = <Design25NeonCity pageData={pageData as any} />;
+      content = <Design25WhatsAppCyberChat pageData={pageData as any} />;
       break;
-    case 26:
-      content = <Design26SunriseBoost pageData={pageData as any} />;
-      break;
-    case 27:
-      content = <Design27PurpleRain pageData={pageData as any} />;
-      break;
-    case 28:
-      content = <Design28SteelEdge pageData={pageData as any} />;
-      break;
-    case 29:
-      content = <Design29RoseElite pageData={pageData as any} />;
-      break;
-    case 30:
-      content = <Design30TitanBlack pageData={pageData as any} />;
-      break;
-    case 31:
-      content = <Design31IceStorm pageData={pageData as any} />;
-      break;
-    case 32:
-      content = <Design32MidnightBloom pageData={pageData as any} />;
-      break;
-    case 33:
-      content = <Design33VolcanoRed pageData={pageData as any} />;
-      break;
-    case 34:
-      content = <Design34CosmicDrift pageData={pageData as any} />;
-      break;
-    case 35:
-      content = <Design35EmeraldCity pageData={pageData as any} />;
-      break;
-    case 36:
-      content = <Design36SandDune pageData={pageData as any} />;
-      break;
-    case 37:
-      content = <Design37NordLight pageData={pageData as any} />;
-      break;
-    case 38:
-      content = <Design38DiamondEdge pageData={pageData as any} />;
-      break;
-    case 39:
-      content = <Design39SkyRocket pageData={pageData as any} />;
-      break;
-    case 40:
-      content = <Design40VelvetLux pageData={pageData as any} />;
-      break;
+
     default:
-      content = <Design1Modern pageData={pageData as any} />;
+      content = <Design8GrayMinimal pageData={pageData as any} />;
   }
 
   return <Suspense fallback={<DesignFallback />}>{content}</Suspense>;

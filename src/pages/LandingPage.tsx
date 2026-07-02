@@ -143,8 +143,6 @@ const LandingPage = () => {
 
   const fetchAndIncrementViews = useCallback(async () => {
     try {
-      console.log("Fetching slug:", slug);
-
       let data: LandingPageData | null = null;
       let workerError: unknown = null;
       let nhostError: unknown = null;
@@ -152,13 +150,11 @@ const LandingPage = () => {
       // 1️⃣ Try sync pre-fetched data first
       const win = window as any;
       if (win.__INITIAL_DATA__) {
-        console.log("Using sync __INITIAL_DATA__");
         data = win.__INITIAL_DATA__;
       } else {
         // 2️⃣ Try Cloudflare Worker (avoids DNS blocking in India)
         try {
           data = await fetchViaWorker(slug);
-          console.log("Loaded via Worker:", !!data);
         } catch (workerErr) {
           console.warn(
             "Worker fetch failed, falling back to Nhost:",
@@ -171,7 +167,6 @@ const LandingPage = () => {
         if (!data) {
           try {
             data = await fetchViaNhost(slug);
-            console.log("Loaded via Nhost fallback:", !!data);
           } catch (nhostErr) {
             console.error("Nhost fallback also failed:", nhostErr);
             nhostError = nhostErr;

@@ -36,7 +36,7 @@ const landingPageSchema = z.object({
   metalink: z.string().trim().min(1).max(100),
   gtagLink: z.string().trim().max(500).optional().or(z.literal("")),
   status: z.enum(["Active", "Inactive"]),
-  designStyle: z.number().min(1).max(40),
+  designStyle: z.number().min(1).max(25),
   slug: z
     .string()
     .trim()
@@ -565,26 +565,11 @@ export default function EditLanding() {
                         <SelectItem value="18">💡 Lumen</SelectItem>
                         <SelectItem value="19">⚪ Slate</SelectItem>
                         <SelectItem value="20">☁️ Nimbus</SelectItem>
-                        <SelectItem value="21">🔥 FireStrike</SelectItem>
-                        <SelectItem value="22">💎 CrystalPro</SelectItem>
-                        <SelectItem value="23">📈 VerdantPulse</SelectItem>
-                        <SelectItem value="24">👑 GoldVault</SelectItem>
-                        <SelectItem value="25">⚡ NeonCity</SelectItem>
-                        <SelectItem value="26">☀️ SunriseBoost</SelectItem>
-                        <SelectItem value="27">💜 PurpleRain</SelectItem>
-                        <SelectItem value="28">🎯 SteelEdge</SelectItem>
-                        <SelectItem value="29">💗 RoseElite</SelectItem>
-                        <SelectItem value="30">▶ TitanBlack</SelectItem>
-                        <SelectItem value="31">❄️ IceStorm</SelectItem>
-                        <SelectItem value="32">🌸 MidnightBloom</SelectItem>
-                        <SelectItem value="33">🌋 VolcanoRed</SelectItem>
-                        <SelectItem value="34">🌌 CosmicDrift</SelectItem>
-                        <SelectItem value="35">💎 EmeraldCity</SelectItem>
-                        <SelectItem value="36">🏜️ SandDune</SelectItem>
-                        <SelectItem value="37">🌌 NordLight</SelectItem>
-                        <SelectItem value="38">◆ DiamondEdge</SelectItem>
-                        <SelectItem value="39">🚀 SkyRocket</SelectItem>
-                        <SelectItem value="40">♦ VelvetLux</SelectItem>
+                        <SelectItem value="21">🟢 WhatsApp Chat Classic</SelectItem>
+                        <SelectItem value="22">💬 WhatsApp Chat Dark</SelectItem>
+                        <SelectItem value="23">📢 WhatsApp Channel Modern</SelectItem>
+                        <SelectItem value="24">🔮 WhatsApp Glassmorphic</SelectItem>
+                        <SelectItem value="25">📟 WhatsApp Cyber Chat</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
